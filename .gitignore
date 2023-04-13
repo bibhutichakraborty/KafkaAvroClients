@@ -1,0 +1,6 @@
+/target/
+/.idea/
+*.avro
+.idea/
+*.iml
+target/
