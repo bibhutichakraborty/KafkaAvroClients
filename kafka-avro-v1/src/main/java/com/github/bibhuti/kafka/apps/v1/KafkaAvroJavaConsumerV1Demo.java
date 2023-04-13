@@ -15,7 +15,7 @@ public class KafkaAvroJavaConsumerV1Demo {
     public static void main(String[] args) {
         Properties properties = new Properties();
         // normal consumer
-        properties.setProperty("bootstrap.servers","http://10.55.11.72:9092");
+        properties.setProperty("bootstrap.servers","localhost:9092");
         properties.put("group.id", "customer-consumer-group-v1");
         properties.put("auto.commit.enable", "false");
         properties.put("auto.offset.reset", "earliest");
@@ -23,7 +23,7 @@ public class KafkaAvroJavaConsumerV1Demo {
         // avro part (deserializer)
         properties.setProperty("key.deserializer", StringDeserializer.class.getName());
         properties.setProperty("value.deserializer", KafkaAvroDeserializer.class.getName());
-        properties.setProperty("schema.registry.url", "http://10.55.11.72:8085");
+        properties.setProperty("schema.registry.url", "http://127.0.0.1:8081");
         properties.setProperty("specific.avro.reader", "true");
 
         KafkaConsumer<String, Customer> kafkaConsumer = new KafkaConsumer<>(properties);
